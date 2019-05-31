@@ -1,17 +1,19 @@
 import socket
 
-HOST_IP = "10.0.0.5"
+hostname = socket.gethostname()
+HOST_IP = socket.gethostbyname(hostname)
 PORT = 5000
 
 udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-orig = (HOST_IP, PORT)
-udp.bind(orig)
+server = (HOST_IP, PORT)
+udp.bind(server)
+
+print("Running Server at: " + str(server))
 
 while True:
-	print("Esperando...")
-	data, cliente = udp.recvfrom(1024)
-	print("Servidor recebeu de", str(cliente),":",data.decode())
-	udp.sendto(b"Pong", cliente)
+	data, client = udp.recvfrom(1024)
+	print("Servidor recebeu de", str(client), ":", data.decode())
+	udp.sendto(b"Pong", client)
 
 udp.close()
