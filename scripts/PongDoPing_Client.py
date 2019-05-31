@@ -21,7 +21,7 @@ print("Get ready for quiiiiite a lot of Pings!")
 
 msg = "Ping"
 
-for x in range(100):
+for x in range(1000):
     x += 1
     ti = ((timeit.default_timer()) * 1000)
     print(server)
