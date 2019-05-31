@@ -23,8 +23,8 @@ msg = "Ping"
 
 for x in range(1000):
     x += 1
-    ti = ((timeit.default_timer()) * 1000)
     print(server)
+    ti = ((timeit.default_timer()) * 1000)
     udp.sendto(msg.encode(), server)
     data, cliente = udp.recvfrom(1024)
     tf = ((timeit.default_timer()) * 1000)
