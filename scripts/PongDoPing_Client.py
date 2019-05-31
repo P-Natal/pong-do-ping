@@ -29,11 +29,10 @@ for x in range(1000):
     data, cliente = udp.recvfrom(1024)
     tf = ((timeit.default_timer()) * 1000)
 
-    if msg == "Ping":
-        print("Server", str(cliente), "responds: ", data.decode())
-        pingTime = tf - ti
-        print("Time: ", pingTime, "ms\n")
-        results.write(str(x) + " -> " + str(pingTime) + "\n")
+    print("Server", str(cliente), "responds: ", data.decode())
+    pingTime = tf - ti
+    print("Time: ", pingTime, "ms\n")
+    results.write(str(x) + " -> " + str(pingTime) + "\n")
 
 results.close()
 udp.close()
